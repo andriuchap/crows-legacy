@@ -105,12 +105,21 @@ void ACrowsLegacyCharacter::Dig()
 	{
 		GetMesh()->GetAnimInstance()->Montage_Play(DigMontage);
 		GetCharacterMovement()->SetMovementMode(MOVE_None);
+		bShouldReturnToDefaultMoveMode = true;
 	}
+}
+
+void ACrowsLegacyCharacter::OnItemFound()
+{
+	bShouldReturnToDefaultMoveMode = false;
 }
 
 void ACrowsLegacyCharacter::DigFinished()
 {
-	GetCharacterMovement()->SetDefaultMovementMode();
+	if (bShouldReturnToDefaultMoveMode)
+	{
+		GetCharacterMovement()->SetDefaultMovementMode();
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////

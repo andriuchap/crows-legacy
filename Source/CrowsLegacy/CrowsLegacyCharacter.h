@@ -42,6 +42,7 @@ class ACrowsLegacyCharacter : public ACharacter
 private:
 
 	bool bWantsToGlide;
+	bool bShouldReturnToDefaultMoveMode;
 
 public:
 	ACrowsLegacyCharacter();
@@ -68,6 +69,9 @@ public:
 	virtual void StopJumping() override;
 
 	void Dig();
+
+	UFUNCTION(BlueprintCallable)
+		void OnItemFound();
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 		void DigMoment();
