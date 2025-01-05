@@ -137,7 +137,7 @@ void ACrowsLegacyCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 		//Moving
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ACrowsLegacyCharacter::Move);
 
-		EnhancedInputComponent->BindAction(DigAction, ETriggerEvent::Started, this, &ACrowsLegacyCharacter::Dig);
+		EnhancedInputComponent->BindAction(DigAction, ETriggerEvent::Triggered, this, &ACrowsLegacyCharacter::Dig);
 	}
 
 }
